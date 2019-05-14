@@ -1,0 +1,37 @@
+$darkPurple : rgb(149, 40, 153);
+$lightRed : rgb(241, 83, 83);
+
+@mixin flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flexLeft($direction, $background) {
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    flex-direction: $direction;
+    background: $background;
+}
+
+
+header {
+    @include flexCenter();
+    background: $darkPurple;
+    button {
+        background: $darkPurple;
+        &:hover {
+            background: $lightRed;
+        }
+    }
+}
+
+.info {
+    @include flexLeft(column, red);
+    // @include flexLeft(row, blue);
+}
+
+.contact {
+    @extend header;
+}
